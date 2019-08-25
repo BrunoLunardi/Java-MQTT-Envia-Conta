@@ -1,7 +1,8 @@
-package enviar_soma;
+package enviar_calculo;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
+import org.eclipse.paho.client.mqttv3.MqttException;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -86,6 +87,23 @@ public class Main extends JFrame {
 					System.out.println(textField.getText() + " " + 
 							comboBox.getSelectedIndex() + " " + 
 							textField_1.getText());
+
+					//monta a string que será enviada para o broker
+					String mensagem = textField.getText() + " " + 
+							comboBox.getSelectedIndex() + " " + 
+							textField_1.getText();
+					
+					//instancia o objeto para publicar as mensagens
+					Publisher publisher = new Publisher( mensagem );
+					//tratamento para envio de mensagem
+					try {
+						//chama método da classe Publihser para enviar a mensagem
+						publisher.enviarMensagemConta();	
+					}catch(MqttException e) {
+						//imprime exceção no console
+						System.out.println(e);
+					}					
+					
 				}
 			}
 		});
