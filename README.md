@@ -5,7 +5,7 @@ Java-MQTT-Envia-Conta
 
 ## Adicionar dependência no arquivo pom.xml (Maven), após a tag <version>0.0.1-SNAPSHOT</version>:
 
-  <dependencies>
+  \<dependencies>
     <dependency>
       <groupId>org.eclipse.paho</groupId>
       <artifactId>org.eclipse.paho.client.mqttv3</artifactId>
