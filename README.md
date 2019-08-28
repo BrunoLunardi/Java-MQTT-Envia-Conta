@@ -9,11 +9,11 @@ Java-MQTT-Envia-Conta
   
   \<dependency>
   
-    \<groupId>org.eclipse.paho\</groupId>
+    <groupId>org.eclipse.paho\</groupId>
   
-    \<artifactId>org.eclipse.paho.client.mqttv3\</artifactId>
+    <artifactId>org.eclipse.paho.client.mqttv3\</artifactId>
   
-    \<version>1.1.0\</version>
+    <version>1.1.0\</version>
   
   \</dependency>
   
