@@ -1,8 +1,5 @@
 # Java-MQTT-Envia-Conta
 
-Java-MQTT-Envia-Conta
-
-
 ## Adicionar dependência no arquivo pom.xml (Maven), após a tag \<version>0.0.1-SNAPSHOT\</version>:
 
 \<dependencies>
