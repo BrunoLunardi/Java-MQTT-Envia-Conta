@@ -41,3 +41,9 @@ mosquitto_sub -h 127.0.0.1 -t iot_data
 Publisher:
 
 mosquitto_pub -h 127.0.0.1 -t iot_data -m "Hello world"
+
+## Limpar cache mosquitto
+
+mosquitto_pub -h 127.0.0.1 -t enviar_resultado -n -r -d
+
+mosquitto_pub -h 127.0.0.1 -t enviar_conta -n -r -d
