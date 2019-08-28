@@ -11,8 +11,8 @@ public class Publisher {
 	//String que enviará a conta para o outro sistema
     String mensagemEnviaConta;
     //construtor da classe para enviar a mensagem
-	public Publisher(String mensagemStatusBarragem){
-		this.mensagemEnviaConta = mensagemStatusBarragem;
+	public Publisher(String mensagemEnviaConta){
+		this.mensagemEnviaConta = mensagemEnviaConta;
 	}
     
 	//Método para enviar a mensagem para o mosquitto

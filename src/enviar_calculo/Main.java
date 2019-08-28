@@ -2,7 +2,6 @@ package enviar_calculo;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
-import org.eclipse.paho.client.mqttv3.MqttException;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -15,6 +14,11 @@ import javax.swing.JComboBox;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+
+import org.eclipse.paho.client.mqttv3.MqttClient;
+import org.eclipse.paho.client.mqttv3.MqttException;
+
+
 
 public class Main extends JFrame {
 
@@ -31,12 +35,27 @@ public class Main extends JFrame {
 				try {
 					Main frame = new Main();
 					frame.setVisible(true);
+					////////////////////
+					////////////////////Recebe o resultado/////////////////////////
+					////////////////////
+					//Local para onde será enviado a mensagem (broker)
+					MqttClient client=new MqttClient("tcp://localhost:1883", 
+							MqttClient.generateClientId());
+					/*Utilização da interface MqttCallback, que Permite que um 
+					 * aplicativo seja notificado 
+					 * quando ocorrerem eventos assíncronos relacionados ao cliente*/
+					client.setCallback(new Subscriber());
+					//Cria conexão com o servidor
+					client.connect();
+					//subscribe no tópico para receber os valores para realização da conta
+					client.subscribe("enviar_resultado");
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
 			}
 		});
 	}
+
 
 	/**
 	 * Create the frame.
@@ -114,10 +133,10 @@ public class Main extends JFrame {
 	
 	//Método para validar JTextField como número
 	public boolean ValidarCampoNumerico(JTextField TextoCampo) {
-		long valor;
+		Double valor;
 		if (TextoCampo.getText().length() != 0){
 			try {
-				valor = Long.parseLong(TextoCampo.getText());
+				valor = Double.parseDouble(TextoCampo.getText());
 			}catch(NumberFormatException ex){
 				JOptionPane.showMessageDialog(null, "Digite um valor válido!" ,"Erro de valor",
 						JOptionPane.INFORMATION_MESSAGE);
