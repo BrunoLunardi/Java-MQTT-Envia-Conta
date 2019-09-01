@@ -39,8 +39,12 @@ public class Main extends JFrame {
 					////////////////////Recebe o resultado/////////////////////////
 					////////////////////
 					//Local para onde será enviado a mensagem (broker)
+					/*
 					MqttClient client=new MqttClient("tcp://localhost:1883", 
 							MqttClient.generateClientId());
+							*/
+					MqttClient client=new MqttClient("tcp://localhost:1883", 
+							MqttClient.generateClientId());					
 					/*Utilização da interface MqttCallback, que Permite que um 
 					 * aplicativo seja notificado 
 					 * quando ocorrerem eventos assíncronos relacionados ao cliente*/
@@ -98,7 +102,7 @@ public class Main extends JFrame {
 		comboBox.addItem("*");
 		contentPane.add(comboBox);
 		
-		JButton btnNewButton = new JButton("Enviar Soma");
+		JButton btnNewButton = new JButton("Enviar Calculo");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				//chamada para validar campos para aceitarem apenas número
