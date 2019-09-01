@@ -43,7 +43,8 @@ public class Main extends JFrame {
 					MqttClient client=new MqttClient("tcp://localhost:1883", 
 							MqttClient.generateClientId());
 							*/
-					MqttClient client=new MqttClient("tcp://localhost:1883", 
+					ConfigServer endIp = new ConfigServer();
+					MqttClient client=new MqttClient(endIp.getEnderecoServidor(), 
 							MqttClient.generateClientId());					
 					/*Utilização da interface MqttCallback, que Permite que um 
 					 * aplicativo seja notificado 

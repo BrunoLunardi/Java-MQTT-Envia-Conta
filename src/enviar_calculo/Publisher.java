@@ -18,8 +18,10 @@ public class Publisher {
 	//Método para enviar a mensagem para o mosquitto
 	public void enviarMensagemConta() throws MqttException {
 		//Local para onde será enviado a mensagem (broker)
+		ConfigServer endIp = new ConfigServer();
 		//MqttClient client = new MqttClient("tcp://localhost:1883", MqttClient.generateClientId());
-		MqttClient client = new MqttClient("tcp://localhost:1883", MqttClient.generateClientId());
+		MqttClient client = new MqttClient(endIp.getEnderecoServidor(), 
+				MqttClient.generateClientId());
 		//abre conexão com o broker (Mosquitto)
 		client.connect();
 		//objeto de envio de mensagem do broker
